@@ -5,8 +5,13 @@ import { HelmetDatoCms } from 'gatsby-source-datocms'
 
 import '../styles/index.sass'
 
-const TemplateWrapper = ({ children, data }) => (
-  <div className="container">
+const TemplateWrapper = ({ children, data }) => {
+  var nav = data.navbar.items.map((itm) => {
+    return <li>
+      <Link to={itm.path}>{itm.name}</Link>
+    </li>
+  });
+  return <div className="container">
     <HelmetDatoCms
       favicon={data.datoCmsSite.faviconMetaTags}
       seo={data.datoCmsHome.seoMetaTags}
@@ -23,12 +28,7 @@ const TemplateWrapper = ({ children, data }) => (
           }}
         />
         <ul className="sidebar__menu">
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/about">About</Link>
-          </li>
+          {nav}
         </ul>
         <p className="sidebar__social">
           {data.allDatoCmsSocialProfile.edges.map(({ node: profile }) => (
@@ -56,8 +56,8 @@ const TemplateWrapper = ({ children, data }) => (
       </div>
       {children()}
     </div>
-  </div>
-)
+  </div>;
+};
 
 TemplateWrapper.propTypes = {
   children: PropTypes.func,
@@ -92,6 +92,12 @@ export const query = graphql`
           profileType
           url
         }
+      }
+    }
+    navbar: datoCmsNavbar {
+      items {
+        name
+        path
       }
     }
   }
