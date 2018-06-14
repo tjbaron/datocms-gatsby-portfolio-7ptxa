@@ -54,6 +54,39 @@
       font-weight: bold
       color: $active-color
 
+.sidebar__lang
+  margin-bottom: 20px
+  font-size: 10px
+
+  li
+    a
+      text-decoration: none
+      display: block
+      padding-left: 10px
+      color: $base-body-color
+      position: relative
+
+      &:before
+        content: ""
+        position: absolute
+        left: 0
+        top: 50%
+        margin-top: -5px
+        height: 10px
+        width: 10px
+        background: url('https://cdn.rawgit.com/encharm/Font-Awesome-SVG-PNG/master/black/svg/chevron-right.svg')
+        background-position: 50% 50%
+        background-repeat: no-repeat
+        background-size: contain
+        opacity: 0.6
+
+      &:hover
+        color: $active-color
+
+    &.is-active a
+      font-weight: bold
+      color: $active-color
+
 .sidebar__social
   margin-bottom: 20px
 

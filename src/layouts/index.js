@@ -7,10 +7,19 @@ import '../styles/index.sass'
 
 const TemplateWrapper = ({ children, data }) => {
   var nav = data.navbar.items.map((itm) => {
+    var p = '.'+itm.path;
     return <li>
-      <Link to={itm.path}>{itm.name}</Link>
+      <Link to={p}>{itm.name}</Link>
     </li>
   });
+
+  var langSelect = [
+    {name: 'English', 'path': '/'},
+    {name: 'Japanese', 'path': '/ja/'},
+  ].map((itm) => {
+    return <li><Link to={itm.path}>{itm.name}</Link></li>
+  });
+
   return <div className="container">
     <HelmetDatoCms
       favicon={data.datoCmsSite.faviconMetaTags}
@@ -29,6 +38,9 @@ const TemplateWrapper = ({ children, data }) => {
         />
         <ul className="sidebar__menu">
           {nav}
+        </ul>
+        <ul className="sidebar__lang">
+          {langSelect}
         </ul>
         <p className="sidebar__social">
           {data.allDatoCmsSocialProfile.edges.map(({ node: profile }) => (
@@ -66,7 +78,7 @@ TemplateWrapper.propTypes = {
 export default TemplateWrapper
 
 export const query = graphql`
-  query LayoutQuery {
+  query LayoutQuery($lang: String) {
     datoCmsSite {
       globalSeo {
         siteName
@@ -75,7 +87,7 @@ export const query = graphql`
         ...GatsbyDatoCmsFaviconMetaTags
       }
     }
-    datoCmsHome {
+    datoCmsHome(locale: {eq: $lang}) {
       seoMetaTags {
         ...GatsbyDatoCmsSeoMetaTags
       }
