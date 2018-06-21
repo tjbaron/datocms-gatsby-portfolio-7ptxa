@@ -2,7 +2,7 @@ const path = require(`path`)
 const { createFilePath } = require(`gatsby-source-filesystem`)
 
 var langs = ['en', 'ja'];
-var pgs = ['/about', '/'];
+var pgs = ['/about', '/tutorials', '/'];
 
 exports.createPages = ({ graphql, boundActionCreators }) => {
   const { createPage, createLayout } = boundActionCreators

@@ -1,0 +1,119 @@
+$light: rgb(224,224,224)
+$dark: rgb(32,32,32)
+$highlight: rgb(144,255,144)
+
+body
+  background: $light
+  font-family: sans-serif
+  margin: 0px
+  padding: 0px
+
+  a
+    color: black
+
+#topbar
+  position: fixed
+  top: 0px
+  height: 200px
+  left: 0px
+  right: 0px
+  background: $dark
+  -webkit-box-shadow: 0px -20px 20px 20px black
+  
+  a
+    color: white
+
+#bottombar
+  position: relative
+  display: block
+  top: 0px
+  left: 0px
+  width: 100%
+  height: 100px
+  background: $dark
+  color: white
+  margin: 0px auto
+
+  a
+    color: white
+
+  div
+    line-height: 100px
+    text-align: center
+
+  ul
+    position: absolute
+    bottom: 0px
+    right: 0px
+    margin: 10px
+    padding: 0px
+    list-style-type: none
+    overflow: hidden
+    text-align: right
+    font-size: 10px
+
+  li
+    display:inline
+    line-height: 10px
+    padding: 5px
+    color: white
+
+#title
+  position: absolute
+  left: 200px
+  top: 40px
+  font-size: 48px
+  color: $highlight
+  text-shadow: 1px 1px 0px black
+
+#title-desc
+  position: relative
+  font-size: 18px
+  color: $highlight
+  text-shadow: 1px 1px 0px black
+
+  p
+    margin: 0px;
+    padding: 0px;
+
+#content
+  position: relative
+  display: block
+  margin: 0px auto
+  margin-top: 200px
+  max-width: 800px
+  overflow: hidden
+  padding: 10px
+  box-sizing: border-box
+  min-height: 1200px
+
+#menu
+  position: absolute
+  bottom: 0px
+  height: 40px
+  left: 200px
+  width: 480px
+
+  ul
+    margin: 0px
+    padding: 0px
+    list-style-type: none
+    overflow: hidden
+
+  li
+    float: left
+    border-left: 1px solid white
+    display:inline
+    line-height: 20px
+    padding: 10px
+    color: white
+
+.article-preview
+  .article-img
+    max-width: 200px
+    max-height: 200px
+  .article-title
+    line-height: 40px
+    font-size: 24px
+  .article-desc
+    padding-bottom: 30px
